@@ -6,20 +6,24 @@ export const createCard = (taskObj) => {
     const newText = document.createElement('span');
     newText.classList.add('task');
     newText.textContent = taskObj.task;
+    if (taskObj.completed){
+        newText.classList.add('taskDone');
+    }
 
     // Create date -> span
+    /*
     const dateElement = document.createElement('span');
     dateElement.textContent = taskObj.date;
+    if (taskObj.completed){
+        dateElement.classList.toggle('taskDone');
+    }
+    */
 
     // Create checkBox -> i
     const newCheckbox = document.createElement('i');
     newCheckbox.classList.add('far', 'checkIcon', 'icon');
     if (taskObj.completed){
         newCheckbox.classList.add('fa-check-square')
-        // line through task
-        newText.classList.add('taskDone');
-        // line through date
-        dateElement.classList.toggle('taskDone');
     } else {
         newCheckbox.classList.add('fa-square');
     }
@@ -29,7 +33,7 @@ export const createCard = (taskObj) => {
     const newContainer = document.createElement('div');
     newContainer.appendChild(newCheckbox);
     newContainer.appendChild(newText);
-    newContainer.appendChild(dateElement);
+    //ewContainer.appendChild(dateElement);
 
     // Create trash -> i
     const newTrash = document.createElement('i');
@@ -41,6 +45,7 @@ export const createCard = (taskObj) => {
     newCard.classList.add('card');
     newCard.appendChild(newContainer);
     newCard.appendChild(newTrash);
+    addColors(newCard, taskObj);
 
     // Add ID
     newCard.dataset.id = taskObj.id;
@@ -48,4 +53,20 @@ export const createCard = (taskObj) => {
     // Add to list -> ul
     const taskList = document.querySelector('#taskList');
     taskList.appendChild(newCard);
+}
+
+const addColors = (newCard, taskObj) => {
+    const currentDate = moment().format('DD/MM/YYYY')
+    const today = moment(currentDate, 'DD/MM/YYYY')
+    const cardDate = moment(taskObj.date, 'DD/MM/YYYY');
+    if (taskObj.completed){
+        newCard.classList.toggle('green')
+    }
+    if (cardDate - today < 0) {
+        newCard.classList.toggle('red')
+    }
+    if (cardDate - today == 0) {
+        newCard.classList.toggle('yellow')
+    }
+
 }

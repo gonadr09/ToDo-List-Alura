@@ -18,23 +18,9 @@ main {
   justify-content: center;
 }
 
-form {
-  width: 100%;
-  justify-content: space-between;
-  align-items: center;
-  display: flex;
-  gap: 10px;
-  margin-bottom: 15px;
-}
-
-.date{
-  list-style: none;
-  width: 100%;
-  margin-top: 15px;
-}
-
 .mainCard {
-  width: 40vw;
+  width: 90vw;
+  max-width: 600px;
   border-radius: 25px;
   background-color: #fff;
   padding: 25px;
@@ -48,12 +34,28 @@ form {
   margin-bottom: 15px;
 }
 
+.div-form{
+  margin-bottom: 5px;
+}
+
+form {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 135px 100px;
+  gap: 10px;
+}
+
+.date{
+  list-style: none;
+  margin-top: 15px;
+  align-self: flex-start;
+}
+
 .inputForm {
   border: none;
   padding: 10px;
   border: 1px solid #eee;
   outline: none;
-  width: 200px;
 }
 
 .inputForm::placeholder {
@@ -83,7 +85,12 @@ form {
   color: #fff;
   border-radius: 5px;
   cursor: pointer;
-  width: 150px !important;
+}
+
+h3{
+  display: inline-block;
+  text-align: center;
+  border-bottom: 1px solid #aaa;
 }
 
 .cardsList {
@@ -95,12 +102,14 @@ form {
   overflow-y: scroll;
   max-height: 60vh;
   height: 60vh;
+  color: #555;
 }
 
 .card {
   width: 90%;
   padding: 15px;
-  box-shadow: 2px 4px 4px 4px rgba(71, 71, 71, 0.16);
+  border: 1px solid #00000040;
+  box-shadow: 0 0 5px #00000040;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -152,5 +161,46 @@ form {
 
 .taskDone{
   text-decoration: line-through;
-  color: #aaa;
+
+}
+
+.red{
+  background-color: #ffc7ce;
+  color: #9c0006;
+}
+
+.yellow{
+  background-color: #ffeb9c;
+  color: #9c5700;
+}
+
+.green{
+  background-color: #c6efce;
+  color: #006100;
+}
+
+.reference{
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.reference-text{
+  text-align: center;
+  font-size: 14px;
+  box-shadow: 0 0 3px #00000040;
+  border: 1px solid #00000020;
+}
+
+@media (max-width: 500px) {
+  form{
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .inputForm{
+    grid-column: 1 / 3;
+  }
 }

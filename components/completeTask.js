@@ -3,6 +3,7 @@ const completeTask = (e) => {
     const checkbox = e.target;
     checkbox.classList.toggle('fa-check-square');
     checkbox.classList.toggle('fa-square');
+    e.target.offsetParent.classList.toggle('green')
     // line through task
     const spanText = e.target.nextElementSibling;
     spanText.classList.toggle('taskDone');
@@ -17,7 +18,7 @@ const completeTask = (e) => {
     const tasksListStorage = JSON.parse(localStorage.getItem('tasks')) || [];
     tasksListStorage.forEach( task => {
         if(task.id == id) {
-            task.completed? task.completed = false: task.completed = true;
+            task.completed = !task.completed;
         }
     })
     localStorage.setItem('tasks', JSON.stringify(tasksListStorage));
