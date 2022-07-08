@@ -9,26 +9,26 @@ export const displayTasks = () => {
     if (!tasksListStorage) {
         tasksListStorage = [
           {
-            task: "Inicio de clases (tarea de prueba)",
-            date: "05/03/2023",
-            completed: false,
-            id: "c7857ca2-05e9-4aa5-8e66-cc2407daf32b",
-          },
-          {
-            task: "Renovar licencia (tarea de prueba)",
-            date: "15/08/2024",
+            task: "Renovar licencia 🚗 (tarea de prueba)",
+            date: moment().add({days:7,months:1, years:1}).format("DD/MM/YYYY"),
             completed: false,
             id: "d3c2f6f1-6711-4723-ab19-7b28c23b894a",
           },
           {
-            task: "Hacer las compras (tarea de prueba)",
-            date: "08/07/2022",
+            task: "Seguir en las redes a este programador 😋 (tarea de prueba)",
+            date: moment().format("DD/MM/YYYY"),
             completed: false,
+            id: "d3c2f6f1-6711-4723-ab19-7b28c23b894a",
+          },
+          {
+            task: "Hacer las compras 🥱 (tarea de prueba)",
+            date: moment().subtract(1, 'days').format("DD/MM/YYYY"),
+            completed: true,
             id: "8af215c8-6739-40a6-ae62-3f07d68a71f7",
           },
           {
-            task: "Reservar turno dentista (tarea de prueba)",
-            date: "15/06/2022",
+            task: "Reservar turno dentista 👨‍⚕️ (tarea de prueba)",
+            date: moment().subtract(3, 'days').format("DD/MM/YYYY"),
             completed: false,
             id: "533715d1-c61e-4b53-8de7-3bd9925ffd5e",
           },
