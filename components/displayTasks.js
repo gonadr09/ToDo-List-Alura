@@ -28,7 +28,7 @@ export const displayTasks = () => {
           },
           {
             task: "Reservar turno dentista 👨‍⚕️ (tarea de prueba)",
-            date: moment().subtract(3, 'days').format("DD/MM/YYYY"),
+            date: moment().subtract(1, 'days').format("DD/MM/YYYY"),
             completed: false,
             id: "533715d1-c61e-4b53-8de7-3bd9925ffd5e",
           },
