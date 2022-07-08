@@ -8,8 +8,8 @@ const completeTask = (e) => {
     const spanText = e.target.nextElementSibling;
     spanText.classList.toggle('taskDone');
     // line through date
-    const spanDate = e.target.nextElementSibling.nextElementSibling;
-    spanDate.classList.toggle('taskDone');
+    //const spanDate = e.target.nextElementSibling.nextElementSibling;
+    //spanDate.classList.toggle('taskDone');
     
     // get ID
     const id = e.target.offsetParent.dataset.id;
