@@ -23,7 +23,14 @@ form {
   justify-content: space-between;
   align-items: center;
   display: flex;
-  position: relative;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.date{
+  list-style: none;
+  width: 100%;
+  margin-top: 15px;
 }
 
 .mainCard {
@@ -46,11 +53,18 @@ form {
   padding: 10px;
   border: 1px solid #eee;
   outline: none;
-  width: 65%;
+  width: 200px;
 }
 
 .inputForm::placeholder {
   padding: 0px;
+}
+
+.dateForm {
+  border: none;
+  padding: 10px;
+  border: 1px solid #eee;
+  outline: none;
 }
 
 .msgAddTask{
@@ -69,6 +83,7 @@ form {
   color: #fff;
   border-radius: 5px;
   cursor: pointer;
+  width: 150px !important;
 }
 
 .cardsList {

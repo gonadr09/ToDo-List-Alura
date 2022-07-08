@@ -4,8 +4,24 @@ const completeTask = (e) => {
     checkbox.classList.toggle('fa-check-square');
     checkbox.classList.toggle('fa-square');
     // line through task
-    const span = e.target.nextElementSibling;
-    span.classList.toggle('taskDone');
+    const spanText = e.target.nextElementSibling;
+    spanText.classList.toggle('taskDone');
+    // line through date
+    const spanDate = e.target.nextElementSibling.nextElementSibling;
+    spanDate.classList.toggle('taskDone');
+    
+    // get ID
+    const id = e.target.offsetParent.dataset.id;
+
+    // Update LocalStorage
+    const tasksListStorage = JSON.parse(localStorage.getItem('tasks')) || [];
+    tasksListStorage.forEach( task => {
+        if(task.id == id) {
+            task.completed? task.completed = false: task.completed = true;
+        }
+    })
+    localStorage.setItem('tasks', JSON.stringify(tasksListStorage));
+
 }
 
 export default completeTask;
